@@ -1,0 +1,18 @@
+header, footer {
+    font-size: 125%;
+    background-color: var(--primary-focus);
+    color: whitesmoke;
+}
+
+footer {
+    width: 100%; 
+    position: absolute;
+    bottom: 0;
+}
+
+table.movimientos {
+    height: 40vh;
+    display: block;
+    overflow-y: auto;
+    
+}

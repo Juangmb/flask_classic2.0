@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block titulo%}
+    Modificación de movimiento
+{% endblock %}
+
+{% block contenido %}
+    <h1>Modifica movimiento</h1>
+
+    <form action="/modifica/{{ id }}" method="post">
+        {{ formulario.hidden_tag() }}
+        <div class="grid">
+            {{ formulario.fecha.label()}}
+            {{ formulario.fecha.data}}
+        </div>
+        {% if formulario.fecha.errors %}
+        {% for error in formulario.fecha.errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+        <div class="grid">
+            {{ formulario.hora.label()}}
+            {{ formulario.hora.data}}
+        </div>
+        {% if formulario.hora.errors %}
+        {% for error in formulario.hora.errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+        <div class="grid">
+            {{ formulario.concepto.label() }}
+            {{ formulario.concepto.data }}
+        </div>
+        {% if formulario.concepto.errors %}
+        {% for error in formulario.concepto.errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+        <div class="grid">
+            {{ formulario.es_ingreso.label() }}
+            {% if formulario.es_ingreso.data == 1 %} Ingreso {% else %} Gasto {% endif %}
+        </div>
+        <div class="grid">
+            {{ formulario.cantidad.label() }}
+            {{ formulario.cantidad.data }}
+        </div>
+        {% if formulario.cantidad.errors %}
+        {% for error in formulario.cantidad.errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+<div class="grid">
+            {{ formulario.aceptar() }}
+            <a href="/" role="button">Cancelar</a>
+        </div>
+    </form>
+{% endblock %}
